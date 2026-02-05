@@ -4,6 +4,14 @@ The `validator` package provides utilities for struct field validation in Go. It
 
 ---
 
+TODO: Поведение
+Указатели:
+если поле nil и нет required, то по дефолту validation не выполняется и нет ошибки
+если поле nil и required, то это будет ошибка 
+ДЕФОЛТНОЕ ПОВЕДЕНИЕ - РАЗРЕШЕНИЕ ПОЛЯ БЫТЬ NIL
+если поле не nil, то будут проведены все required. в том числе  
+
+а еще мин макс поразному рабоатет с чиалми и строками
 #### Types:
 **CustomErrors**  
    A map containing custom error messages for specific fields and validation rules.
@@ -33,7 +41,7 @@ The `validator` package provides utilities for struct field validation in Go. It
    })
    ```
 
-3. **Validate(i interface{}) error**  
+3. **Validate(i any) error**  
    Validates the fields of a struct passed as the interface `i`. Returns an error if any validation fails.
 
    ```go
